@@ -82,7 +82,7 @@ Light pink: #BF8C80
 }
 
 #formContainer {
-    padding-right: 25px;
+    padding-right: 50px;
 }
 .formInfo {
     width: 50%;
@@ -124,11 +124,4 @@ Light pink: #BF8C80
 }
 
 
-#name {
-    display: flex;
-    justify-content: space-between;
-}
 
-.name {
-    width: auto;
-}
