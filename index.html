@@ -22,24 +22,41 @@
                 <p class="subtitle">Please enter your details below</p>
                 <div id="formContainer">
                     <form id="form">
+                        <!--Names-->
                         <div id="name">
                             <input class="inputField name" id="firstName" type="text" placeholder="First name">
+                            <p id="errorFirstName" class="errorMessage">Name must contain at least two characters</p>
                             <input class="inputField name" id="lastName" type="text" placeholder="Last name">
+                            <p id="errorLastName" class="errorMessage">Name must contain at least two characters</p>
                         </div>
+                        <!--Email-->
                         <div class="ePost">
-                            <input class="inputField" id="email" class="" type="email" placeholder="Email">
+                            <input class="inputField" id="email" type="email" placeholder="Email">
+                            <p id="errorEmail" class="errorMessage">Not a valid email</p>
                         </div>
-                        <div class="passWord">
-                            <input class="inputField" id="email" class="" type="password" placeholder="Please enter your password">
-                            <input class="inputField" id="email" class="" type="password" placeholder="Please re-enter your password">
-                        </div>
+                        <!--Age-->
                         <div class="age">
-                            <input class="inputField" id="email" class="" type="text" placeholder="Please enter your age">
+                            <!-- Year month and day, use regex. Google how to validate age over 18 -->
+                            <input class="inputField" id="age" type="text" placeholder="Please enter your age">
                         </div>
-                        <div class="adress">
-                            <input class="inputField" id="email" class="" type="text" placeholder="Please enter your postal code">
-                            <input class="inputField" id="email" class="" type="text" placeholder="Please re-enter your city">
+                        <!--Address-->
+                        <div class="address">
+                            <!-- Post 5 characters -->
+                            <!-- City minimum 2 characters-->
+                            <input class="inputField" id="postalCode" type="text" placeholder="Please enter your postal code">
+                            <p id="errorPostalCode" class="errorMessage">Not a valid postal code</p>
+                            <input class="inputField" id="city" type="text" placeholder="Please enter your city">
+                            <p id="errorCity" class="errorMessage">Not a valid city</p>
                         </div>
+                        <!--Password-->
+                        <div class="password">
+                            <input class="inputField" id="password" type="password" placeholder="Please enter your password">
+                            <p id="errorPassword" class="errorMessage">Not a valid password</p>
+                            <input class="inputField" id="repeatPassword" type="password" placeholder="Please re-enter your password">
+                            <p id="errorPasswordMatch" class="errorMessage">Passwords do not match</p>
+                        </div>
+                        <!--Submit-->
+                        <!--If  all validated > submit-->
                         <div id="button">
                             <input type="submit" class="button" id="submit" value="Send">
                         </div>
@@ -55,6 +72,6 @@
    
    
    <script src="https://kit.fontawesome.com/124ac6c2b5.js" crossorigin="anonymous"></script>
-   <script src="script.js"></script>
+   <script src="/script.js"></script>
 </body>
 </html>
