@@ -13,7 +13,9 @@ let email = document.getElementById('email');
 errorEmail.hidden = true;
 
 //Age
-
+let age = document.getElementById('age');
+let ageError = document.getElementById('errorAge');
+ageError.hidden = true;
 
 //Address
 let postalCode = document.getElementById('postalCode');
@@ -56,19 +58,18 @@ function validateMinLengthFirstName(element) {
     if (!regEx.test(element.value)) {
         errorFirstName.hidden = false
         validated = false;
-        firstName.style.outlineColor ="red";
+        firstName.style.border = "1px solid red";
         return false
     } else {
         errorFirstName.hidden = true;
         console.log(validated);
-        firstName.style.outlineColor = "green";
+        firstName.style.border = "1px solid green"
         return validated = true;
     }
 }
 
 
 // Last name validation
-// *******fix issue with two names********
 lastName.addEventListener("keyup", function(e) {
     validateMinLengthLastName(e.target);
 })
@@ -78,12 +79,12 @@ function validateMinLengthLastName(element) {
     if (!regEx.test(element.value)) {
         errorLastName.hidden = false
         validated = false;
-        lastName.style.outlineColor ="red";
+        lastName.style.border = "1px solid red";
         return true
     } else {
         errorLastName.hidden = true;
         console.log(validated);
-        lastName.style.outlineColor = "green";
+        lastName.style.border = "1px solid green"
         return true;
     }
 }
@@ -97,60 +98,86 @@ function validateEmail(element) {
     let regEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (!regEx.test(element.value)) {
         errorEmail.hidden = false;
-        email.style.outlineColor = "red";
+        email.style.border = "1px solid red";
         return false;
     } else {
         errorEmail.hidden = true;
-        email.style.outlineColor = "green";
+        email.style.border = "1px solid green"
         return true;
     }
 }
 
 //Age Validation
 
+age.addEventListener('blur', function(e) {
+    calculateAge(e.target);
+})
+
+function calculateAge(){
+
+    let userAge = document.getElementById('age').value;  
+    console.log(userAge);
+    
+    let birthDate = new Date(userAge);
+     console.log(" birthDate"+ birthDate);
+    
+    let difference=Date.now() - birthDate.getTime(); 
+    let ageDate = new Date(difference); 
+    let calculatedAge = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+    if (calculatedAge <= 18 ) {
+        console.log(`${calculatedAge} not old enough`);
+        errorAge.hidden = false;
+        age.style.border = "1px solid red";
+        return false
+    } else {
+        console.log(`${calculatedAge}  old enough`);
+        errorAge.hidden = true;
+        age.style.border = "1px solid green"
+        return true
+    }
+}
 
 //Address Validation
-    //postcal code
-    postalCode.addEventListener("keyup", function(e) {
-        validatePostalCode(e.target);
-    })
+//postcal code
+postalCode.addEventListener("keyup", function(e) {
+    validatePostalCode(e.target);
+})
 
-    // *****fix regex*****
-    function validatePostalCode(element) {
-        let regEx = /^(?=(?:[^A-Za-z]*[A-Za-z]){2})(?![^\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,]*[\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,])\S+(?: \S+){0,2}$/;
-        if (!regEx.test(element.value)) {
-            errorPostalCode.hidden = false
-            validated = false;
-            postalCode.style.outlineColor ="red";
-            return true
-        } else {
-            errorPostalCode.hidden = true;
-            console.log(validated);
-            postalCode.style.outlineColor = "green";
-            return true;
-        }
+function validatePostalCode(element) {
+    let regEx = /^[0-9a-zA-Z]{5}/;
+    if (!regEx.test(element.value) || element.value.length > 5) {
+        errorPostalCode.hidden = false
+        validated = false;
+        postalCode.style.border = "1px solid red";
+        return true
+    } else {
+        errorPostalCode.hidden = true;
+        console.log(validated);
+        postalCode.style.border = "1px solid green"
+        return true;
     }
+}
 
 
-    //city
-    city.addEventListener("keyup", function(e) {
-        validateCity(e.target);
-    })
-    function validateCity(element) {
-        let regEx = /^(?=(?:[^A-Za-z]*[A-Za-z]){2})(?![^\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,]*[\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,])\S+(?: \S+){0,2}$/;
-        if (!regEx.test(element.value)) {
-            errorCity.hidden = false
-            validated = false;
-            city.style.outlineColor ="red";
-            return true
-        } else {
-            errorCity.hidden = true;
-            console.log(validated);
-            city.style.outlineColor = "green";
-            return true;
-        }
+//city
+city.addEventListener("keyup", function(e) {
+    validateCity(e.target);
+})
+function validateCity(element) {
+    let regEx = /^(?=(?:[^A-Za-z]*[A-Za-z]){2})(?![^\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,]*[\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,])\S+(?: \S+){0,2}$/;
+    if (!regEx.test(element.value)) {
+        errorCity.hidden = false
+        validated = false;
+        city.style.border = "1px solid red";
+        return true
+    } else {
+        errorCity.hidden = true;
+        console.log(validated);
+        city.style.border = "1px solid green"
+        return true;
     }
-
+}
 
 
 //Password Validation
@@ -162,11 +189,11 @@ function validatePassword(element) {
     const reg= /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
     if(!reg.test(element.value)) {
         errorPassword.hidden = false;
-        password.style.outlineColor = "red";
+        password.style.border = "1px solid red";
         return false
     } else {
         errorPassword.hidden = true;
-        password.style.outlineColor = "green";
+        password.style.border = "1px solid green"
         return true;
     }
 }
@@ -179,13 +206,12 @@ repeatPassword.addEventListener("keyup", function(e) {
 function passwordMatch (element) {
     if (password.value !== repeatPassword.value) {
         errorPasswordMatch.hidden = false;
-        repeatPassword.style.outlineColor = "red";
+        repeatPassword.style.border = "1px solid red";
         return false
 
     } else {
         errorPasswordMatch.hidden = true;
-        repeatPassword.style.outlineColor = "green";
+        repeatPassword.style.border = "1px solid green"
         return true
     }
 }
-// console.log(validated);

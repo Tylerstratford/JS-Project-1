@@ -36,13 +36,11 @@
                         </div>
                         <!--Age-->
                         <div class="age">
-                            <!-- Year month and day, use regex. Google how to validate age over 18 -->
-                            <input class="inputField" id="age" type="text" placeholder="Please enter your age">
+                            <input class="inputField" id="age" type="date" data-date-inline-picker="true" placeholder="Please enter your age: YYYY-MM-DD">
+                            <p id="errorAge" class="errorMessage">You must be at least 18 years of age</p>
                         </div>
                         <!--Address-->
                         <div class="address">
-                            <!-- Post 5 characters -->
-                            <!-- City minimum 2 characters-->
                             <input class="inputField" id="postalCode" type="text" placeholder="Please enter your postal code">
                             <p id="errorPostalCode" class="errorMessage">Not a valid postal code</p>
                             <input class="inputField" id="city" type="text" placeholder="Please enter your city">
