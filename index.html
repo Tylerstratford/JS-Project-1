@@ -24,33 +24,33 @@
                     <form id="form">
                         <!--Names-->
                         <div id="name">
-                            <input class="inputField name" id="firstName" type="text" placeholder="First name">
+                            <input class="inputField name" id="firstName" type="text" placeholder="First name" required>
                             <p id="errorFirstName" class="errorMessage">Name must contain at least two characters</p>
-                            <input class="inputField name" id="lastName" type="text" placeholder="Last name">
+                            <input class="inputField name" id="lastName" type="text" placeholder="Last name" required>
                             <p id="errorLastName" class="errorMessage">Name must contain at least two characters</p>
                         </div>
                         <!--Email-->
                         <div class="ePost">
-                            <input class="inputField" id="email" type="email" placeholder="Email">
+                            <input class="inputField" id="email" type="email" placeholder="Email" required>
                             <p id="errorEmail" class="errorMessage">Not a valid email</p>
                         </div>
                         <!--Age-->
                         <div class="age">
-                            <input class="inputField" id="age" type="date" data-date-inline-picker="true" placeholder="Please enter your age: YYYY-MM-DD">
+                            <input class="inputField" id="age" type="date" data-date-inline-picker="true" placeholder="Please enter your age: YYYY-MM-DD" required>
                             <p id="errorAge" class="errorMessage">You must be at least 18 years of age</p>
                         </div>
                         <!--Address-->
                         <div class="address">
-                            <input class="inputField" id="postalCode" type="text" placeholder="Please enter your postal code">
+                            <input class="inputField" id="postalCode" type="text" placeholder="Please enter your postal code" required>
                             <p id="errorPostalCode" class="errorMessage">Not a valid postal code</p>
-                            <input class="inputField" id="city" type="text" placeholder="Please enter your city">
+                            <input class="inputField" id="city" type="text" placeholder="Please enter your city" required>
                             <p id="errorCity" class="errorMessage">Not a valid city</p>
                         </div>
                         <!--Password-->
                         <div class="password">
-                            <input class="inputField" id="password" type="password" placeholder="Please enter your password">
+                            <input class="inputField" id="password" type="password" placeholder="Please enter your password" required>
                             <p id="errorPassword" class="errorMessage">Not a valid password</p>
-                            <input class="inputField" id="repeatPassword" type="password" placeholder="Please re-enter your password">
+                            <input class="inputField" id="repeatPassword" type="password" placeholder="Please re-enter your password" required>
                             <p id="errorPasswordMatch" class="errorMessage">Passwords do not match</p>
                         </div>
                         <!--Submit-->
