@@ -178,7 +178,7 @@ city.addEventListener("keyup", function(e) {
     validateCity(e.target);
 })
 function validateCity(element) {
-    let regEx = /^(?=(?:[^A-Za-z]*[A-Za-z]){2})(?![^\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,]*[\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,])\S+(?: \S+){0,2}$/;
+    let regEx = /^(?=(?:[^A-Öa-ö]*[A-Öa-ö]){2})(?![^\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,]*[\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,])\S+(?: \S+){0,2}$/;
     if (!regEx.test(element.value)) {
         errorCity.hidden = false
         city.style.border = "1px solid red";
