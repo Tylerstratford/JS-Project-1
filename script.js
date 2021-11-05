@@ -95,7 +95,7 @@ function validateMinLengthLastName(element) {
 }
 
 
-//Email Validation
+//Email Validation 
 email.addEventListener("keyup", function(e) {
     validateEmail(e.target);
 })
@@ -116,7 +116,7 @@ function validateEmail(element) {
 }
 
 
-//Age Validation
+//Age Validation //Regex not neccesary with type = "date"
 age.addEventListener('blur', function(e) {
     calculateAge(e.target);
 })
@@ -132,6 +132,8 @@ function calculateAge(){
     let difference=Date.now() - birthDate.getTime(); 
     let ageDate = new Date(difference); 
     let calculatedAge = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+    console.log(calculatedAge);
 
     if (calculatedAge <= 18 ) {
         console.log(`${calculatedAge} not old enough`);
