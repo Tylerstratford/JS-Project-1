@@ -59,7 +59,7 @@ firstName.addEventListener("keyup", function(e) {
 })
 
 function validateMinLengthFirstName(element) {
-    let regEx = /^(?=(?:[^A-Za-z]*[A-Za-z]){2})(?![^\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,]*[\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,])\S+(?: \S+){0,2}$/;
+    let regEx = /^(?=(?:[^A-Öa-ö]*[A-Öa-ö]){2})(?![^\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,]*[\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,])\S+(?: \S+){0,2}$/;
     if (!regEx.test(element.value)) {
         errorFirstName.hidden = false
         firstName.style.border = "1px solid red";
@@ -80,7 +80,7 @@ lastName.addEventListener("keyup", function(e) {
 })
 
 function validateMinLengthLastName(element) {
-    let regEx = /^(?=(?:[^A-Za-z]*[A-Za-z]){2})(?![^\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,]*[\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,])\S+(?: \S+){0,2}$/;
+    let regEx = /^(?=(?:[^A-Öa-ö]*[A-Öa-ö]){2})(?![^\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,]*[\d~`?!^*¨ˆ;@=$%{}\[\]|\\\/<>#“.,])\S+(?: \S+){0,2}$/;
     if (!regEx.test(element.value)) {
         errorLastName.hidden = false
         lastName.style.border = "1px solid red";
