@@ -49,6 +49,23 @@ let form = document.getElementById('form')
 form.addEventListener("submit", function(e){
     e.preventDefault();
     console.log('submitted')
+    alert("Submitted!")
+    firstName.value = "";
+    lastName.value = "";
+    email.value = "";
+    city.value = "";
+    postalCode.value = ""
+    age.value = "";
+    password.value = "";
+    repeatPassword.value = "";
+    firstName.style.border = "";
+    lastName.style.border = "";
+    email.style.border = "";
+    age.style.border = "";
+    postalCode.style.border = "";
+    city.style.border = "";
+    password.style.border = "";
+    repeatPassword.style.border = "";
 })
 
 
@@ -122,24 +139,26 @@ age.addEventListener('blur', function(e) {
 })
 
 function calculateAge(){
-
+    //Does not account for leap years, age accuracy can differ by a few days
+    //Validation works with "blur" meaning you have to click away from the date-picker to see validation
     let userAge = document.getElementById('age').value;  
     console.log(userAge);
     
     let birthDate = new Date(userAge);
      console.log(" birthDate"+ birthDate);
     
-    let difference=Date.now() - birthDate.getTime(); 
+    let difference = Date.now() - birthDate.getTime(); 
     let ageDate = new Date(difference); 
     let calculatedAge = Math.abs(ageDate.getUTCFullYear() - 1970);
 
     console.log(calculatedAge);
 
-    if (calculatedAge <= 18 ) {
+    if (calculatedAge < 18 ) {
         console.log(`${calculatedAge} not old enough`);
         errorAge.hidden = false;
         age.style.border = "1px solid red";
         submit.disabled = true;
+        age.value = "";
         return false
     } else {
         console.log(`${calculatedAge}  old enough`);
